@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account</title>
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-box">
+
+            <div class="login-icon">🛋️</div>
+
+            <h1>Create Account</h1>
+
+            <p>Join Furniture Shop</p>
+
+            <input
+                type="text"
+                id="newUsername"
+                placeholder="Enter username"
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter email"
+            >
+
+            <input
+                type="password"
+                id="newPassword"
+                placeholder="Create password"
+            >
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm password"
+            >
+
+            <button onclick="register()">
+                Create Account
+            </button>
+
+            <p>
+                Already have an account?
+                <a href="index.html">Login</a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function register()
+        {
+            var username =
+                document.getElementById("newUsername").value.trim();
+
+            var email =
+                document.getElementById("email").value.trim();
+
+            var password =
+                document.getElementById("newPassword").value;
+
+            var confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+
+            if(
+                username === "" ||
+                email === "" ||
+                password === "" ||
+                confirmPassword === ""
+            )
+            {
+                alert("Please fill all fields");
+                return;
+            }
+
+
+            if(password !== confirmPassword)
+            {
+                alert("Passwords do not match");
+                return;
+            }
+
+
+            localStorage.setItem(
+                "registeredUsername",
+                username
+            );
+
+            localStorage.setItem(
+                "registeredPassword",
+                password
+            );
+
+
+            alert("Account created successfully!");
+
+            window.location.href = "index.html";
+        }
+
+    </script>
+
+</body>
+
+</html>
